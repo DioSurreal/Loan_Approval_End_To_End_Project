@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Loan Application Form</h1>
+        <form action="/predict" method="POST">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="gender" class="form-label">Gender:</label>
+                    <select name="Gender" id="gender" class="form-select">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="age" class="form-label">Age:</label>
+                    <input type="number" name="Age" id="age" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="marital_status" class="form-label">Marital Status:</label>
+                    <select name="Marital_Status" id="marital_status" class="form-select">
+                        <option value="Married">Married</option>
+                        <option value="Single">Single</option>
+                        <option value="Divorced">Divorced</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="dependents" class="form-label">Dependents:</label>
+                    <input type="number" name="Dependents" id="dependents" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="education" class="form-label">Education:</label>
+                    <select name="Education" id="education" class="form-select">
+                        <option value="Graduate">Graduate</option>
+                        <option value="High School">High School</option>
+                        <option value="Postgraduate">Postgraduate</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="employment_status" class="form-label">Employment Status:</label>
+                    <select name="Employment_Status" id="employment_status" class="form-select">
+                        <option value="Employed">Employed</option>
+                        <option value="Self-Employed">Self-Employed</option>
+                        <option value="Unemployed">Unemployed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="occupation_type" class="form-label">Occupation Type:</label>
+                    <select name="Occupation_Type" id="occupation_type" class="form-select">
+                        <option value="Salaried">Salaried</option>
+                        <option value="Business">Business</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="residential_status" class="form-label">Residential Status:</label>
+                    <select name="Residential_Status" id="residential_status" class="form-select">
+                        <option value="Owned">Owned</option>
+                        <option value="Rented">Rented</option>
+                        <option value="Mortgage">Mortgage</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="city" class="form-label">City/Town:</label>
+                    <input type="text" name="City/Town" id="city" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="annual_income" class="form-label">Annual Income:</label>
+                    <input type="number" name="Annual_Income" id="annual_income" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="monthly_expenses" class="form-label">Monthly Expenses:</label>
+                    <input type="number" name="Monthly_Expenses" id="monthly_expenses" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="credit_score" class="form-label">Credit Score:</label>
+                    <input type="number" name="Credit_Score" id="credit_score" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="existing_loans" class="form-label">Existing Loans:</label>
+                    <input type="number" name="Existing_Loans" id="existing_loans" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="total_existing_loan_amount" class="form-label">Total Existing Loan Amount:</label>
+                    <input type="number" name="Total_Existing_Loan_Amount" id="total_existing_loan_amount"
+                        class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="outstanding_debt" class="form-label">Outstanding Debt:</label>
+                    <input type="number" name="Outstanding_Debt" id="outstanding_debt" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="loan_history" class="form-label">Loan History:</label>
+                    <input type="number" name="Loan_History" id="loan_history" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="loan_amount_requested" class="form-label">Loan Amount Requested:</label>
+                    <input type="number" name="Loan_Amount_Requested" id="loan_amount_requested" class="form-control"
+                        required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="loan_term" class="form-label">Loan Term:</label>
+                    <input type="number" name="Loan_Term" id="loan_term" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="default_risk" class="form-label">Default Risk:</label>
+                    <input type="number" name="Default_Risk" id="default_risk" class="form-control" step="0.01"
+                        required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="loan_purpose" class="form-label">Loan Purpose:</label>
+                    <input type="text" name="Loan_Purpose" id="loan_purpose" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="interest_rate" class="form-label">Interest Rate:</label>
+                    <input type="number" name="Interest_Rate" id="interest_rate" class="form-control" step="0.01"
+                        required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="loan_type" class="form-label">Loan Type:</label>
+                    <select name="Loan_Type" id="loan_type" class="form-select">
+                        <option value="Secured">Secured</option>
+                        <option value="Unsecured">Unsecured</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="co_applicant" class="form-label">Co-Applicant:</label>
+                    <select name="Co-Applicant" id="co_applicant" class="form-select">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="bank_account_history" class="form-label">Bank Account History:</label>
+                    <input type="number" name="Bank_Account_History" id="bank_account_history" class="form-control"
+                        required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="transaction_frequency" class="form-label">Transaction Frequency:</label>
+                    <input type="number" name="Transaction_Frequency" id="transaction_frequency" class="form-control"
+                        required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary w-50">Submit Application</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Modal Popup -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultModalLabel">Loan Application Status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                    <!-- Result will be displayed here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- JavaScript for AJAX -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault(); // ป้องกันการ reload หน้า
+
+            const formData = new FormData(event.target);
+            
+            const formObject = {};
+            formData.forEach((value, key) => {
+                // ตรวจสอบและแปลงค่าตามประเภทที่ต้องการ
+                if (["Age", "Dependents", "Annual_Income", "Monthly_Expenses", "Existing_Loans", "Total_Existing_Loan_Amount", "Outstanding_Debt", "Loan_History", "Loan_Amount_Requested", "Loan_Term", "Bank_Account_History", "Transaction_Frequency"].includes(key)) {
+                    formObject[key] = parseInt(value, 10); // แปลงเป็น int
+                } else if (["Credit_Score", "Default_Risk", "Interest_Rate"].includes(key)) {
+                    formObject[key] = parseFloat(value); // แปลงเป็น float
+                } else {
+                    formObject[key] = value; // ค่าที่ไม่ต้องแปลง
+                }
+            });
+
+            console.log(formObject);
+            console.log(JSON.stringify(formObject));
+
+            fetch('/predict', {
+                headers: { "Content-Type": "application/json" },
+                method: 'POST',
+                body: JSON.stringify(formObject) // ส่งข้อมูลเป็น JSON
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const modalContent = document.getElementById('modalContent');
+                    modalContent.textContent = data.prediction;
+
+                    const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+                    resultModal.show();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                });
+        });
+
+    </script>
+</body>
+
+</html>
