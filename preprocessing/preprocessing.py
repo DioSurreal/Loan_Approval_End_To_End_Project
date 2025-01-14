@@ -20,8 +20,7 @@ def preprocessing(df):
         df['loan_to_value_ratio'] = df['loan_amount_requested'] / df['annual_income']
         df['credit_utilize'] = df['outstanding_debt'] /df['total_existing_loan_amount']
 
-        selected_features = ['age_group', 'employment_status', 'credit_score', 'loan_amount_requested', 'annual_income',
-                            'debt_to_income_ratio', 'income_to_expenses_ratio', 'monthly_expenses']
+        selected_features = ['age_group', 'employment_status', 'credit_score','debt_to_income_ratio', 'income_to_expenses_ratio', 'monthly_expenses']
         df_selected = df[selected_features]
 
         # Select categorical columns for encoding
@@ -37,8 +36,7 @@ def preprocessing(df):
         df_selected = pd.concat([df_selected, df_encoded], axis=1)
 
         # Columns to scale (excluding loan_approval_status)
-        cols_to_scale = ['credit_score', 'loan_amount_requested', 'annual_income',
-                        'debt_to_income_ratio', 'income_to_expenses_ratio', 'monthly_expenses']
+        cols_to_scale = ['credit_score','debt_to_income_ratio', 'income_to_expenses_ratio', 'monthly_expenses']
         df_selected[cols_to_scale] = min_max_scaler.transform(
             df_selected[cols_to_scale])
         return df_selected
