@@ -6,3 +6,4 @@ pandas
 lightgbm
 numpy
 flask-cors==3.0.9
+pycaret[full]
