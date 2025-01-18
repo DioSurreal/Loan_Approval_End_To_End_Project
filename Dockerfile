@@ -1,25 +1,26 @@
+# Use the official Python 3.11 image as the base image
 FROM python:3.11
 
-# ติดตั้ง distutils และ build tools
+# Install necessary system packages for building Python modules
 RUN apt-get update && apt-get install -y python3-distutils build-essential
 
-# อัปเกรด pip, setuptools และ wheel
+# Upgrade pip, setuptools, and wheel to the latest versions
 RUN pip install --upgrade pip setuptools wheel
 
-# ตั้งค่า working directory
+# Set the working directory inside the container to /app
 WORKDIR /app
 
-# คัดลอก requirements.txt ก่อนเพื่อใช้ cache
+# Copy requirements.txt into the container (used for caching dependencies)
 COPY requirements.txt .
 
-# ติดตั้ง dependencies
+# Install the dependencies listed in requirements.txt without caching
 RUN pip install --no-cache-dir -r requirements.txt
 
-
-# คัดลอกไฟล์ที่เหลือทั้งหมด
+# Copy the rest of the application files into the container
 COPY . .
 
+# Expose port 8080 to allow external access to the application
 EXPOSE 8080
 
-# รันแอปพลิเคชัน
+# Set the command to run the application using Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
