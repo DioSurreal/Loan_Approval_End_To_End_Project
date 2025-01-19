@@ -12,10 +12,6 @@ def preprocessing(df):
     # Convert column names to lowercase for uniformity
     df.columns = df.columns.str.lower()
     
-    # Create a new column to categorize age into groups
-    df['age_group'] = pd.cut(df['age'], bins=[17, 24, 39, 55, float('inf')],
-                             labels=['Young Adult', 'Middle Adult', 'Middle Age', 'Early Retirement'])
-    
     # Create a new column to categorize transaction frequency into levels
     df['trans_freq_level'] = pd.cut(df['transaction_frequency'], bins=[5, 17, 23, float('inf')],
                                     labels=['Low', 'Meduium', 'High'])
@@ -34,13 +30,12 @@ def preprocessing(df):
 
     # Select features that are relevant for the model
     selected_features = [
-        'age_group', 'employment_status', 'credit_score',
-        'debt_to_income_ratio', 'income_to_expenses_ratio', 'monthly_expenses'
+        'employment_status', 'credit_score','debt_to_income_ratio', 'income_to_expenses_ratio'
     ]
     df_selected = df[selected_features]  # Create a new DataFrame with selected features
 
     # Define categorical columns for encoding
-    cat_cols = ['age_group', 'employment_status']
+    cat_cols = ['employment_status']
 
     # Perform one-hot encoding on categorical features
     df_encoded = pd.DataFrame(one_hot_encoder.transform(df_selected[cat_cols]))
@@ -53,7 +48,7 @@ def preprocessing(df):
     df_selected = pd.concat([df_selected, df_encoded], axis=1)  # Add encoded columns to the DataFrame
 
     # Define numeric columns to scale
-    cols_to_scale = ['credit_score', 'debt_to_income_ratio', 'income_to_expenses_ratio', 'monthly_expenses']
+    cols_to_scale = ['credit_score', 'debt_to_income_ratio', 'income_to_expenses_ratio']
     
     # Scale numerical columns using MinMaxScaler
     df_selected[cols_to_scale] = min_max_scaler.transform(df_selected[cols_to_scale])
